@@ -1,0 +1,7 @@
+--cpu "Cortex-M3" -g --apcs /interwork
+-IE:\STM32\keil5\keil_v5\ARM\ARMCLANG\include
+-I.\RTE\_Template
+-IE:\STM32\keil5\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include
+-IE:\STM32\keil5\keil_v5\ARM\CMSIS\Include
+--pd "__UVISION_VERSION SETA 525" --pd "STM32F10X_HD SETA 1"
+--list --xref -o ..\..\output\startup_stm32f103xe.o --depend ..\..\output\startup_stm32f103xe.d "..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Source\Templates\arm\startup_stm32f103xe.s"

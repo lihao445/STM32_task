@@ -1,0 +1,7 @@
+--c99 -c --cpu "Cortex-M3" -g -Wabdfrvy+glpsu -O0 --apcs=/interwork --split_sections -I ..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include -I ..\..\Drivers\STM32F1xx_HAL_Driver\Inc -I ..\..\Drivers\CMSIS\Include -I ..\..\Drivers -I ..\..\Users
+-IE:\STM32\keil5\keil_v5\ARM\ARMCLANG\include
+-I.\RTE\_Template
+-IE:\STM32\keil5\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include
+-IE:\STM32\keil5\keil_v5\ARM\CMSIS\Include
+-D__UVISION_VERSION="525" -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE
+-o ..\..\output\usart.o --depend ..\..\output\usart.d "..\..\Drivers\SYSTEM\usart\usart.c"

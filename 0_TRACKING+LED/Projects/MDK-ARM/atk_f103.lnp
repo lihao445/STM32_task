@@ -1,0 +1,22 @@
+--cpu Cortex-M3
+".\startup_stm32f103xe.o"
+".\stm32f1xx_it.o"
+".\main.o"
+".\system_stm32f1xx.o"
+".\sys.o"
+".\delay.o"
+".\usart.o"
+".\stm32f1xx_hal.o"
+".\stm32f1xx_hal_cortex.o"
+".\stm32f1xx_hal_dma.o"
+".\stm32f1xx_hal_gpio.o"
+".\stm32f1xx_hal_gpio_ex.o"
+".\stm32f1xx_hal_rcc.o"
+".\stm32f1xx_hal_rcc_ex.o"
+".\stm32f1xx_hal_uart.o"
+".\stm32f1xx_hal_usart.o"
+".\xunji.o"
+--strict --scatter ".\atk_f103.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "..\..\Output\atk_f103.map" -o .\atk_f103.axf
