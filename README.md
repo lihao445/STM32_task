@@ -1,2 +1,2 @@
 # STM32_task
-库库库
+Task list for beginners learning STM32
