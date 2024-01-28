@@ -1,0 +1,1 @@
+Bluetooth module controls the small light to turn on and off

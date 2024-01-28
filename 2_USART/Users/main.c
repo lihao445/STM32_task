@@ -29,19 +29,13 @@ int main(void)
     SystemClock_Config();                    /* 设置时钟, 72Mhz */
     delay_init(72);                          /* 延时初始化 */
     usart_init(9600);                     /* 波特率设为9600 */
-		led_init();
-	
-    while(1)
-    { 
-			switch(g_rx_buffer[0])
-			{
-				case '0':HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-        break;
-				case '1':HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-        break;
-				default:
-        break;
-			}
-    }
+
+  while (1)
+  {
+		
+	}
 }
+
+
+
 

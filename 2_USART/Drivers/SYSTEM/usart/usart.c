@@ -129,6 +129,17 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)//串口MSP回调函数
         gpio_init_struct.Mode = GPIO_MODE_AF_INPUT; 			/* 串口RX脚 必须设置成输入模式 */
 			  gpio_init_struct.Pull = GPIO_PULLUP;                /* 上拉 */
         HAL_GPIO_Init(GPIOA, &gpio_init_struct);  
+			
+				GPIO_InitTypeDef gpio_init_struct={0};
+    
+        __HAL_RCC_GPIOC_CLK_ENABLE();
+    
+        gpio_init_struct.Pin=GPIO_PIN_13;
+        gpio_init_struct.Mode=GPIO_MODE_OUTPUT_PP;
+        gpio_init_struct.Speed=GPIO_SPEED_FREQ_LOW;
+        gpio_init_struct.Pull=GPIO_PULLDOWN;
+        HAL_GPIO_Init(GPIOC, &gpio_init_struct);
+
         
 #if USART_EN_RX
         HAL_NVIC_EnableIRQ(USART1_IRQn);                      /* 使能USART1中断通道 */
@@ -145,9 +156,28 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)//串口MSP回调函数
  */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)//串口数据接收完成回调函数
 {
-		g_usart_rx_sta = 1;
-	
+		if (huart->Instance == USART1)
+   {
+      g_usart_rx_sta = 1;
+		 if(g_usart_rx_sta== 1)
+		{
+		switch( g_rx_buffer[0] )
+      {
+        case 1:
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);         
+        break;
+
+        case 0:
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);         
+        break;
+
+        default:
+        break;
+			}
+		}
+   }
 }
+
 
 /**
  * @brief       串口X中断服务函数
