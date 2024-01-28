@@ -15,5 +15,5 @@ void led_init (void)
     HAL_GPIO_Init(GPIOC, &gpio_init_struct);
 
 
-    HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_RESET);
 }

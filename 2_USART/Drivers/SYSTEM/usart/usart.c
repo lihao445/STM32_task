@@ -130,15 +130,15 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)//串口MSP回调函数
 			  gpio_init_struct.Pull = GPIO_PULLUP;                /* 上拉 */
         HAL_GPIO_Init(GPIOA, &gpio_init_struct);  
 			
-				GPIO_InitTypeDef gpio_init_struct={0};
-    
-        __HAL_RCC_GPIOC_CLK_ENABLE();
-    
-        gpio_init_struct.Pin=GPIO_PIN_13;
-        gpio_init_struct.Mode=GPIO_MODE_OUTPUT_PP;
-        gpio_init_struct.Speed=GPIO_SPEED_FREQ_LOW;
-        gpio_init_struct.Pull=GPIO_PULLDOWN;
-        HAL_GPIO_Init(GPIOC, &gpio_init_struct);
+//				GPIO_InitTypeDef gpio_init_struct={0};
+//    
+//        __HAL_RCC_GPIOC_CLK_ENABLE();
+//    
+//        gpio_init_struct.Pin=GPIO_PIN_13;
+//        gpio_init_struct.Mode=GPIO_MODE_OUTPUT_PP;
+//        gpio_init_struct.Speed=GPIO_SPEED_FREQ_LOW;
+//        gpio_init_struct.Pull=GPIO_PULLDOWN;
+//        HAL_GPIO_Init(GPIOC, &gpio_init_struct);
 
         
 #if USART_EN_RX

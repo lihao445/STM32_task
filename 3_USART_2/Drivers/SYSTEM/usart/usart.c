@@ -130,15 +130,15 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)//´®¿ÚMSP»Øµ÷º¯Êý
 			  gpio_init_struct.Pull = GPIO_PULLUP;                /* ÉÏÀ­ */
         HAL_GPIO_Init(GPIOA, &gpio_init_struct);  
 			
-				GPIO_InitTypeDef gpio_init_struct={0};
-    
-        __HAL_RCC_GPIOC_CLK_ENABLE();
-    
-        gpio_init_struct.Pin=GPIO_PIN_13;
-        gpio_init_struct.Mode=GPIO_MODE_OUTPUT_PP;
-        gpio_init_struct.Speed=GPIO_SPEED_FREQ_LOW;
-        gpio_init_struct.Pull=GPIO_PULLDOWN;
-        HAL_GPIO_Init(GPIOC, &gpio_init_struct);
+//				GPIO_InitTypeDef gpio_init_struct={0};
+//    
+//        __HAL_RCC_GPIOC_CLK_ENABLE();
+//    
+//        gpio_init_struct.Pin=GPIO_PIN_13;
+//        gpio_init_struct.Mode=GPIO_MODE_OUTPUT_PP;
+//        gpio_init_struct.Speed=GPIO_SPEED_FREQ_LOW;
+//        gpio_init_struct.Pull=GPIO_PULLDOWN;
+//        HAL_GPIO_Init(GPIOC, &gpio_init_struct);
 
         
 #if USART_EN_RX
@@ -159,7 +159,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)//´®¿ÚÊý¾Ý½ÓÊÕÍê³É»Øµ÷º¯Ê
 		if (huart->Instance == USART1)
    {
       g_usart_rx_sta = 1;
-		 
    }
 }
 

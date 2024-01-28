@@ -29,7 +29,7 @@ int main(void)
     SystemClock_Config();                    /* 设置时钟, 72Mhz */
     delay_init(72);                          /* 延时初始化 */
     usart_init(9600);                     /* 波特率设为9600 */
-
+		led_init();
   while (1)
   {
 		
