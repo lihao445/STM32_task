@@ -163,11 +163,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)//´®¿ÚÊý¾Ý½ÓÊÕÍê³É»Øµ÷º¯Ê
 		{
 		switch( g_rx_buffer[0] )
       {
-        case 1:
+			case 1:
         HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);         
         break;
 
-        case 0:
+			case 0:
         HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);         
         break;
 
