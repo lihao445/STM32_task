@@ -10,6 +10,7 @@ void startup_main(void)
 	for(;;)  //µÈÍ¬ÓÚwhile(true)
 	{
 		bsp_delay.f1.ms(500);
+		HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
 	}
 #endif
 }
