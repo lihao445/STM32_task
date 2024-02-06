@@ -1,0 +1,28 @@
+--cpu Cortex-M3
+"c_1_uart1\startup_stm32f103xb.o"
+"c_1_uart1\startup_main.o"
+"c_1_uart1\main.o"
+"c_1_uart1\gpio.o"
+"c_1_uart1\usart.o"
+"c_1_uart1\stm32f1xx_it.o"
+"c_1_uart1\stm32f1xx_hal_msp.o"
+"c_1_uart1\stm32f1xx_hal_gpio_ex.o"
+"c_1_uart1\stm32f1xx_hal_tim.o"
+"c_1_uart1\stm32f1xx_hal_tim_ex.o"
+"c_1_uart1\stm32f1xx_hal_uart.o"
+"c_1_uart1\stm32f1xx_hal.o"
+"c_1_uart1\stm32f1xx_hal_rcc.o"
+"c_1_uart1\stm32f1xx_hal_rcc_ex.o"
+"c_1_uart1\stm32f1xx_hal_gpio.o"
+"c_1_uart1\stm32f1xx_hal_dma.o"
+"c_1_uart1\stm32f1xx_hal_cortex.o"
+"c_1_uart1\stm32f1xx_hal_pwr.o"
+"c_1_uart1\stm32f1xx_hal_flash.o"
+"c_1_uart1\stm32f1xx_hal_flash_ex.o"
+"c_1_uart1\stm32f1xx_hal_exti.o"
+"c_1_uart1\system_stm32f1xx.o"
+"c_1_uart1\bsp_delay.o"
+--strict --scatter "C_1_UART1\C_1_UART1.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "C_1_UART1.map" -o C_1_UART1\C_1_UART1.axf
