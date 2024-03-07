@@ -3,7 +3,8 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/0_TRACKING+LED/Drivers/STM32F1xx_HAL_Driver/Inc"
             ],
             "defines": [
                 "_DEBUG",
