@@ -1,9 +1,9 @@
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html><head>
-<title>Static Call Graph - [can1\can1.axf]</title></head>
+<title>Static Call Graph - [can1_2\can1_2.axf]</title></head>
 <body><HR>
-<H1>Static Call Graph for image can1\can1.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Sat Mar  9 10:31:56 2024
+<H1>Static Call Graph for image can1_2\can1_2.axf</H1><HR>
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Sat Mar  9 11:23:50 2024
 <BR><P>
 <H3>Maximum Stack Usage =        168 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -24,7 +24,6 @@ Mutually Recursive functions
  <LI><a href="#[3]">MemManage_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[3]">MemManage_Handler</a><BR>
  <LI><a href="#[1]">NMI_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1]">NMI_Handler</a><BR>
  <LI><a href="#[5]">UsageFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[5]">UsageFault_Handler</a><BR>
- <LI><a href="#[9a]">startup_main</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[9a]">startup_main</a><BR>
 </UL>
 <P>
 <H3>
@@ -809,8 +808,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[99]"></a>MX_GPIO_Init</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, gpio.o(.text.MX_GPIO_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = MX_GPIO_Init
+<P><STRONG><a name="[99]"></a>MX_GPIO_Init</STRONG> (Thumb, 76 bytes, Stack size 12 bytes, gpio.o(.text.MX_GPIO_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = MX_GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -864,7 +863,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_AddTxMessage
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startup_main
 </UL>
 
 <P><STRONG><a name="[95]"></a>can_filter_init</STRONG> (Thumb, 44 bytes, Stack size 48 bytes, bsp_can.o(.text.can_filter_init))
@@ -872,7 +871,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_ConfigFilter
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startup_main
 </UL>
 
 <P><STRONG><a name="[97]"></a>can_start</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, bsp_can.o(.text.can_start))
@@ -882,16 +881,13 @@ Global Symbols
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Start
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startup_main
 </UL>
 
-<P><STRONG><a name="[68]"></a>main</STRONG> (Thumb, 58 bytes, Stack size 0 bytes, main.o(.text.main))
+<P><STRONG><a name="[68]"></a>main</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_RCC_GetSysClockFreq &rArr; __aeabi_uldivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_cmd_send
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_start
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_filter_init
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startup_main
+<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startup_main
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN1_Init
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
@@ -900,11 +896,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[9a]"></a>startup_main</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_main.o(.text.startup_main))
-<BR><BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startup_main
+<P><STRONG><a name="[9a]"></a>startup_main</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, startup_main.o(.text.startup_main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = startup_main &rArr; can_filter_init &rArr; HAL_CAN_ConfigFilter
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;startup_main
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_cmd_send
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_start
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_filter_init
+</UL>
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[62]"></a>_fp_init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, fpinit.o(x$fpl$fpinit))
