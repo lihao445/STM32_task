@@ -1,4 +1,4 @@
-#include"bsp_can.h"
+#include "bsp_can.h"
 
 static CAN_TxHeaderTypeDef can_tx_message;
 static CAN_RxHeaderTypeDef can_rx_message;
@@ -31,8 +31,39 @@ void can_start(CAN_HandleTypeDef *hcan)
 	}
 }
 
-void can_cmd_send(int motor1,int motor2,int motor3,int motor4)
+void can_cmd_send(int motor1,int motor2,int motor3,int motor4)//发送函数
 {
+	uint32_t send_mail_box;
+	can_tx_message.StdId=0x200;//ID标准标识符；
+	can_tx_message.IDE=CAN_ID_STD;//帧格式；
+	can_tx_message.RTR=CAN_RTR_DATA;//帧类型；
+	can_tx_message.DLC=0x08;//数据长度；
+	
+	can_send_data[0]=motor1>>8;
+	can_send_data[1]=motor1;
+	can_send_data[2]=motor2>>8;
+	can_send_data[3]=motor2;
+	can_send_data[4]=motor3>>8;
+	can_send_data[5] = motor3;
+	can_send_data[6] = motor4 >> 8;
+	can_send_data[7] = motor4;
+	
+	HAL_CAN_AddTxMessage(&hcan1,&can_tx_message,can_send_data,&send_mail_box);
+	//向Tx邮箱中增加一个消息，并且激活对应的传输请求；
+
+}
+  /*此函数是将电流值发送给大疆CAN1通信电机，
+CAN1通信每次只能发送8比特的数据，电流值是16比特的数据，
+所以把电流值向右移8位，然后再发送给电机。
+电机接收到电流值就开始转动（入口参数是电调ID为1-4的电机电流值）*/
+
+void can_cmd_receive()
+{
+	uint32_t receive_mail_box;
+	can_rx_message.StdId=0x200;//ID标准帧
+	can_rx_message.IDE=CAN_ID_STD;//帧格式
+	can_rx_message.RTR=CAN_RTR_DATA;//帧类型
+	can_rx_message.DLC=0x08;//数据长度
 	
 }
 

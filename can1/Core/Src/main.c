@@ -24,6 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "startup_main.h"
+#include "bsp_can.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -88,6 +89,8 @@ int main(void)
   MX_CAN1_Init();
   /* USER CODE BEGIN 2 */
 startup_main();
+can_filter_init();
+can_start(&hcan1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -95,7 +98,7 @@ startup_main();
   while (1)
   {
     /* USER CODE END WHILE */
-
+can_cmd_send(1500,1500,1500,1500);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
