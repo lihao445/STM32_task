@@ -1,4 +1,5 @@
-balanced_trolley/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
+balanced_trolley/pid_user.o: ..\applications\Src\pid_user.c \
+  ..\applications\Inc\pid_user.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h \
   ..\Core\Inc\stm32f1xx_hal_conf.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h \
@@ -28,10 +29,8 @@ balanced_trolley/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \
-  ..\Core\Inc\i2c.h ..\Core\Inc\tim.h ..\Core\Inc\gpio.h \
-  ..\bsp\boards\Inc\oled.h ..\bsp\boards\Inc\motor.h \
-  E:\STM32\keil5\keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  ..\applications\Inc\encoder.h ..\I2c_mpu6050\IIC.h \
+  ..\applications\Inc\encoder.h ..\I2c_mpu6050\inv_mpu.h \
+  ..\I2c_mpu6050\inv_mpu_dmp_motion_driver.h ..\I2c_mpu6050\mpu6050.h \
+  ..\I2c_mpu6050\IIC.h \
   E:\STM32\keil5\keil_v5\ARM\ARMCLANG\Bin\..\include\inttypes.h \
-  ..\I2c_mpu6050\inv_mpu.h ..\I2c_mpu6050\inv_mpu_dmp_motion_driver.h \
-  ..\I2c_mpu6050\mpu6050.h ..\applications\Inc\pid_user.h
+  ..\bsp\boards\Inc\motor.h ..\Core\Inc\main.h

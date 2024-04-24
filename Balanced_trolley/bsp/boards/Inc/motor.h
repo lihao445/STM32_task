@@ -7,6 +7,6 @@ extern TIM_HandleTypeDef htim1;
 
 int abs(int p);
 void Load(int moto1,int moto2);
-
+void Limit(int *motoA,int *motoB);
 
 #endif

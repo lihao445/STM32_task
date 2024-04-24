@@ -28,6 +28,11 @@
 #include "motor.h"
 #include "stdio.h"
 #include "encoder.h"
+#include "IIC.h"
+#include "inv_mpu.h"
+#include "inv_mpu_dmp_motion_driver.h"
+#include "mpu6050.h"
+#include "pid_user.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -48,9 +53,10 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint32_t Encoder_Left,Encoder_Right;
 uint32_t sys_tick;
 uint32_t display_buf[20];
+extern float roll;
+extern int Encoder_Left,Encoder_Right;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -101,20 +107,27 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	OLED_Init();//≥ı ºªØ
 	OLED_Clear();//«Â∆¡
+	MPU_Init(); 
+	mpu_dmp_init();
+	OLED_ShowString(0,00,"Init Sucess",16);
+	HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_4);
-	Load(7200,7200); 
+	Load(0,0); 
+	OLED_Clear();	
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		Read();
 		sprintf((char *)display_buf,"Encoder_L:%d   ",Encoder_Left);
-		OLED_ShowString(0,4,display_buf,16);
+		OLED_ShowString(0,0,display_buf,16);
 		sprintf((char *)display_buf,"Encoder_R:%d   ",Encoder_Right);
-		OLED_ShowString(0,6,display_buf,16);
+		OLED_ShowString(0,2,display_buf,16);		
+		sprintf((char *)display_buf,"roll:%.1f   ",roll); 
+		OLED_ShowString(0,4,display_buf,16);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -162,14 +175,7 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void Read(void)
-{
-	if(uwTick-sys_tick<10)
-		return;
-	sys_tick=uwTick;
-	Encoder_Left=Read_Speed(&htim2);
-	Encoder_Right=-Read_Speed(&htim4);
-}
+
 /* USER CODE END 4 */
 
 /**

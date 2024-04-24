@@ -14,7 +14,7 @@ uint8_t MPU_Init(void)
     MPU_Write_Byte(MPU_PWR_MGMT1_REG,0X00);	//唤醒MPU6050
     MPU_Set_Gyro_Fsr(3);					//陀螺仪传感器,±2000dps
     MPU_Set_Accel_Fsr(0);					//加速度传感器,±2g
-    MPU_Set_Rate(200);						//设置采样率50Hz
+    MPU_Set_Rate(100);						//设置采样率100Hz
     MPU_Write_Byte(MPU_INT_EN_REG,0X00);	//关闭所有中断
     MPU_Write_Byte(MPU_USER_CTRL_REG,0X00);	//I2C主模式关闭
     MPU_Write_Byte(MPU_FIFO_EN_REG,0X00);	//关闭FIFO
@@ -24,7 +24,7 @@ uint8_t MPU_Init(void)
     {
         MPU_Write_Byte(MPU_PWR_MGMT1_REG,0X01);	//设置CLKSEL,PLL X轴为参考
         MPU_Write_Byte(MPU_PWR_MGMT2_REG,0X00);	//加速度与陀螺仪都工作
-        MPU_Set_Rate(100);						//设置采样率为50Hz
+        MPU_Set_Rate(100);						//设置采样率为100Hz
     } else return 1;
     return 0;
 }
@@ -187,7 +187,7 @@ uint8_t MPU_Read_Len(uint8_t addr,uint8_t reg,uint8_t len,uint8_t *buf)
 uint8_t MPU_Write_Byte(uint8_t reg,uint8_t data)
 {
     MPU_IIC_Start();
-    MPU_IIC_Send_Byte((MPU_ADDR<<1)|0);//发送器件地址+写命令
+    MPU_IIC_Send_Byte((MPU_ADDR<<1)|0);//发送器件地址+写命令  
     if(MPU_IIC_Wait_Ack())	//等待应答
     {
         MPU_IIC_Stop();
@@ -211,7 +211,7 @@ uint8_t MPU_Read_Byte(uint8_t reg)
 {
     uint8_t res;
     MPU_IIC_Start();
-    MPU_IIC_Send_Byte((MPU_ADDR<<1)|0);//发送器件地址+写命令
+    MPU_IIC_Send_Byte((MPU_ADDR<<1)|0);//发送器件地址+写命令  ？
     MPU_IIC_Wait_Ack();		//等待应答
     MPU_IIC_Send_Byte(reg);	//写寄存器地址
     MPU_IIC_Wait_Ack();		//等待应答

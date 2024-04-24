@@ -1,6 +1,5 @@
 --cpu Cortex-M3
 "balanced_trolley\startup_stm32f103xb.o"
-"balanced_trolley\startup_main.o"
 "balanced_trolley\main.o"
 "balanced_trolley\gpio.o"
 "balanced_trolley\i2c.o"
@@ -24,6 +23,7 @@
 "balanced_trolley\system_stm32f1xx.o"
 "balanced_trolley\mpu6050.o"
 "balanced_trolley\encoder.o"
+"balanced_trolley\pid_user.o"
 "balanced_trolley\oled.o"
 "balanced_trolley\motor.o"
 "balanced_trolley\iic.o"

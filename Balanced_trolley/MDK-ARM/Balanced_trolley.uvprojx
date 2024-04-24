@@ -395,11 +395,6 @@
           <GroupName>Application/User/Core</GroupName>
           <Files>
             <File>
-              <FileName>startup_main.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\Core\Src\startup_main.cpp</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/main.c</FilePath>
@@ -681,6 +676,11 @@
               <FileName>encoder.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\applications\Src\encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>pid_user.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\applications\Src\pid_user.c</FilePath>
             </File>
           </Files>
         </Group>
