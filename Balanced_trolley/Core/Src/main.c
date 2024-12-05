@@ -18,8 +18,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "i2c.h"
 #include "tim.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -33,6 +35,7 @@
 #include "inv_mpu_dmp_motion_driver.h"
 #include "mpu6050.h"
 #include "pid_user.h"
+#include "sr04.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,8 +58,11 @@
 /* USER CODE BEGIN PV */
 uint32_t sys_tick;
 uint32_t display_buf[20];
+extern float distance;
 extern float roll;
 extern int Encoder_Left,Encoder_Right;
+extern uint8_t rx_buf[2];
+extern short gyroz;//角速度z
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -99,11 +105,13 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_I2C1_Init();
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
+  MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 	OLED_Init();//初始化
 	OLED_Clear();//清屏
@@ -114,6 +122,8 @@ int main(void)
 	HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_4);
+	//HAL_UART_Receive_IT(&huart3,rx_buf,1);
+	HAL_UART_Receive_DMA(&huart3,rx_buf,1);
 	Load(0,0); 
 	OLED_Clear();	
   /* USER CODE END 2 */
@@ -128,6 +138,9 @@ int main(void)
 		OLED_ShowString(0,2,display_buf,16);		
 		sprintf((char *)display_buf,"roll:%.1f   ",roll); 
 		OLED_ShowString(0,4,display_buf,16);
+		GET_Distance();
+		sprintf((char *)display_buf,"distance:%.1f  ",distance);
+		OLED_ShowString(0,6,display_buf,12);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

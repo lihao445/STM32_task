@@ -34,5 +34,6 @@ balanced_trolley/inv_mpu_dmp_motion_driver.o: \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \
+  ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h \
   ..\I2c_mpu6050\inv_mpu_dmp_motion_driver.h ..\I2c_mpu6050\dmpKey.h \
   ..\I2c_mpu6050\dmpmap.h

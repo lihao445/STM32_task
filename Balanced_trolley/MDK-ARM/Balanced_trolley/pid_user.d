@@ -29,8 +29,10 @@ balanced_trolley/pid_user.o: ..\applications\Src\pid_user.c \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \
+  ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h \
   ..\applications\Inc\encoder.h ..\I2c_mpu6050\inv_mpu.h \
   ..\I2c_mpu6050\inv_mpu_dmp_motion_driver.h ..\I2c_mpu6050\mpu6050.h \
   ..\I2c_mpu6050\IIC.h \
   E:\STM32\keil5\keil_v5\ARM\ARMCLANG\Bin\..\include\inttypes.h \
-  ..\bsp\boards\Inc\motor.h ..\Core\Inc\main.h
+  ..\bsp\boards\Inc\motor.h ..\Core\Inc\main.h \
+  ..\applications\Inc\sr04.h

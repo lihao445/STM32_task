@@ -12,7 +12,7 @@ int abs(int p)//取绝对值函数
 
 void Load(int moto1,int moto2)
 {
-	if(moto1<0)
+	if(moto1<0)//控制正反转
 	{
 		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_RESET);
@@ -22,7 +22,7 @@ void Load(int moto1,int moto2)
 		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_SET);
 	}
-	__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_4,abs(moto1));
+	__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_4,abs(moto1));//设置pwm占空比；
 	if(moto2<0)
 	{
 		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_SET);
@@ -36,7 +36,7 @@ void Load(int moto1,int moto2)
 	__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_1,abs(moto2));
 }
 
-void Limit(int *motoA,int *motoB)
+void Limit(int *motoA,int *motoB)//控制电机转速
 {
 	if(*motoA>PWM_MAX)*motoA=PWM_MAX;
 	if(*motoA<PWM_MIN)*motoA=PWM_MIN;

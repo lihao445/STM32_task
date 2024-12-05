@@ -28,5 +28,6 @@ balanced_trolley/mpu6050.o: ..\I2c_mpu6050\mpu6050.c \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \
+  ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h \
   ..\I2c_mpu6050\mpu6050.h ..\I2c_mpu6050\IIC.h \
   E:\STM32\keil5\keil_v5\ARM\ARMCLANG\Bin\..\include\inttypes.h
